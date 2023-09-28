@@ -50,26 +50,38 @@ const SavedVideos = () => (
 
           <Container>
             {savedVideos.length > 0 ? (
-              <UnorderedList>
-                {savedVideos.map(each => {
-                  const date1 = each.publishedAt
-                  const updatedDate = formatDistanceToNow(
-                    new Date(date1),
-                  ).split(' ')
-                  const displayDate = updatedDate[1]
-                  const key = each.id
-                  return (
-                    <ListItem key={each.id}>
-                      <Image src={each.thumbnailUrl} alt="video thumbnail" />
-                      <Para>{each.title}</Para>
-                      <Para>{each.name}</Para>
-                      <Para>{each.viewCount} views</Para>
-                      <Dot>.</Dot>
-                      <Para>{displayDate} years ago</Para>
-                    </ListItem>
-                  )
-                })}
-              </UnorderedList>
+              <Container>
+                <Container>
+                  <CgPlayListAdd size={35} color="#ff0000" />
+                </Container>
+                <Heading>Saved Videos</Heading>
+
+                <UnorderedList>
+                  {savedVideos.map(each => {
+                    const date1 = each.publishedAt
+                    const updatedDate = formatDistanceToNow(
+                      new Date(date1),
+                    ).split(' ')
+                    const displayDate = updatedDate[1]
+                    const {id} = each
+                    return (
+                      <LinkEle to={`/videos/${id}`} key={each.id}>
+                        <ListItem>
+                          <Image
+                            src={each.thumbnailUrl}
+                            alt="video thumbnail"
+                          />
+                          <Para>{each.title}</Para>
+                          <Para>{each.name}</Para>
+                          <Para>{each.viewCount} views</Para>
+                          <Dot>.</Dot>
+                          <Para>{displayDate} years ago</Para>
+                        </ListItem>
+                      </LinkEle>
+                    )
+                  })}
+                </UnorderedList>
+              </Container>
             ) : (
               <Container>
                 <Image

@@ -114,13 +114,17 @@ class Login extends Component {
               />
             )}
 
+            <InputEle
+              id="check"
+              checked={isCheck}
+              onChange={this.onChangeCheck}
+              type="checkbox"
+            />
             <LabelEle htmlFor="check">Show Password</LabelEle>
-            <InputEle onChange={this.onChangeCheck} type="checkbox" />
           </FormContainer>
 
-          <ButtonContainer>
-            <Button type="submit">Login</Button>
-          </ButtonContainer>
+          <Button type="submit">Login</Button>
+
           {showSubmitError && <p>*{errorMsg}</p>}
         </FormEle>
       </MainContainer>

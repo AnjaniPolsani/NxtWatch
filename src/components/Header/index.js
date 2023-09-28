@@ -63,7 +63,7 @@ const Header = props => {
                 <Popup modal trigger={<Button>Logout</Button>}>
                   {close => (
                     <PopupContainer>
-                      <Para>Are you sure,you want to logout?</Para>
+                      <Para>Are you sure, you want to logout</Para>
                       <Button
                         type="button"
                         data-testid="closeButton"

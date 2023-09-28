@@ -2,7 +2,7 @@ import {Container, Heading, Para, Image} from './styledComponents'
 
 const Footer = () => (
   <Container>
-    <Heading>CONTACT US</Heading>
+    <Para>CONTACT US</Para>
     <Container>
       <Image
         src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"

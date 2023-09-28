@@ -123,11 +123,11 @@ class Home extends Component {
     return (
       <BannerContainer isDisplay={isDisplay} data-testid="banner">
         <Image src={logo} alt="nxt watch logo" />
-        <Para>Buy Nxt Watch Premium prepaid plans with UPI</Para>
+        <Para>Buy Nxt Watch Premium</Para>
         <Button>GET IT NOW</Button>
-        <BannerContainer1 data-testid="close" onClick={this.onCloseBanner}>
+        <Button type="button" data-testid="close" onClick={this.onCloseBanner}>
           <AiOutlineClose size={25} />
-        </BannerContainer1>
+        </Button>
       </BannerContainer>
     )
   }
@@ -165,6 +165,7 @@ class Home extends Component {
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
               alt="no videos"
             />
+            <Heading>No Search results found</Heading>
             <Para>Try different key words or remove search filter</Para>
             <Button onClick={this.onRetry}>Retry</Button>
           </Container>
@@ -242,6 +243,7 @@ class Home extends Component {
                   placeholder="Search"
                 />
                 <Button
+                  type="button"
                   data-testid="searchButton"
                   onClick={this.onSearchResults}
                 >

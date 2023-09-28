@@ -11,7 +11,12 @@ import Loader from 'react-loader-spinner'
 
 import ReactPlayer from 'react-player'
 
-import {AiOutlineLike, AiOutlineDislike, AiFillHome} from 'react-icons/ai'
+import {
+  AiOutlineLike,
+  AiOutlineDislike,
+  AiFillLike,
+  AiFillDislike,
+} from 'react-icons/ai'
 import {BiListPlus} from 'react-icons/bi'
 
 import {formatDistanceToNow} from 'date-fns'
@@ -32,7 +37,7 @@ import {
   NavContainer,
   HrLine,
   Dot,
-  LinksContainer,
+  ParaIcon,
   FailContainer,
   MainContainer,
 } from './styledComponents'
@@ -131,6 +136,8 @@ class VideoItemDetails extends Component {
     const {publishedAt} = videoDetails
     const likeIconColor = isLiked ? '#2563eb' : '#64748b'
     const dislikeIconColor = isDisLiked ? '#2563eb' : '#64748b'
+    const likeIcon = isLiked ? <AiFillLike /> : <AiOutlineLike />
+    const dislikeIcon = isDisLiked ? <AiFillDislike /> : <AiOutlineDislike />
     const date1 = publishedAt
 
     const updatedDate = formatDistanceToNow(new Date(date1)).split(' ')
@@ -160,7 +167,7 @@ class VideoItemDetails extends Component {
           return (
             <Container>
               <ReactPlayer url={videoDetails.videoUrl} controls width="100%" />
-              <Heading>{videoDetails.title}</Heading>
+              <Para>{videoDetails.title}</Para>
               <Container>
                 <p>
                   {videoDetails.viewCount} views
@@ -174,8 +181,8 @@ class VideoItemDetails extends Component {
                       color={likeIconColor}
                       onClick={this.clickLiked}
                     >
-                      <AiOutlineLike size={25} />
-                      <Para>Like</Para>
+                      {likeIcon}
+                      <ParaIcon color={likeIconColor}>Like</ParaIcon>
                     </IconButton>
                   </Container>
                   <Container>
@@ -184,8 +191,8 @@ class VideoItemDetails extends Component {
                       color={dislikeIconColor}
                       onClick={this.clickDisLiked}
                     >
-                      <AiOutlineDislike size={25} />
-                      <Para>Dislike</Para>
+                      {dislikeIcon}
+                      <ParaIcon color={dislikeIconColor}>Dislike</ParaIcon>
                     </IconButton>
                   </Container>
                   <Container>
@@ -271,9 +278,9 @@ class VideoItemDetails extends Component {
             >
               <Header />
               <Sidebar />
-              <Container data-testid="videoItemDetails" bgColor={bgColor}>
-                {this.renderVideoDetailView()}
-              </Container>
+
+              {this.renderVideoDetailView()}
+
               <Footer />
             </MainContainer>
           )

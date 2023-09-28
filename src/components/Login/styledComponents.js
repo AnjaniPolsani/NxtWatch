@@ -12,6 +12,9 @@ export const FormEle = styled.form``
 
 export const ButtonContainer = styled.div``
 
-export const Button = styled.button``
+export const Button = styled.button`
+  color: #ffffff;
+  background-color: #0b69ff;
+`
 
 export const LogoContainer = styled.div``

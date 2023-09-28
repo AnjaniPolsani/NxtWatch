@@ -32,3 +32,6 @@ export const IconButton = styled.button`
 export const MainContainer = styled.div`
   background-color: ${props => (props.isDarkTheme ? '#0f0f0f' : '#f9f9f9')};
 `
+export const ParaIcon = styled.p`
+  color: ${props => props.color};
+`
